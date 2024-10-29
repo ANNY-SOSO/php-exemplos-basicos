@@ -23,13 +23,18 @@
         $senha = $_POST['senha'];
 
         // Abre o arquivo usuarios.txt para leitura
+        // o r é de read só lê o arquivo
         $arquivo = fopen('usuarios.txt', 'r');
+
+        // assumimos que o usuário ainda não deve acessar, porque ainda não validamos a entrada
+        // ou seja, segurança
         $login_sucesso = false;
 
         // Lê cada linha do arquivo
+        // laço de repetição (while)
         while (($linha = fgets($arquivo)) !== false) {
-            // Divide a linha pelo delimitador ":"
-            list($usuario_arquivo, $senha_arquivo) = explode(':', trim($linha));
+            // Divide a linha pelo delimitador ";"
+            list($usuario_arquivo, $senha_arquivo) = explode(';', trim($linha));
 
             // Verifica se o nome e a senha correspondem aos valores no arquivo
             if ($nome == $usuario_arquivo && $senha == $senha_arquivo) {
@@ -43,7 +48,7 @@
 
         // Exibe a mensagem de sucesso ou erro
         if ($login_sucesso) {
-            echo "<p>Login realizado com sucesso! Bem-vindo, $nome!</p>";
+            echo "<p style=' color: green;'>Login realizado com sucesso! Bem-vindo, $nome!</p>";
         } else {
             echo "<p style='color: red;'>Usuário ou senha incorretos.</p>";
         }

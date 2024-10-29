@@ -28,6 +28,7 @@
         $password = "";
         $dbname = "exercicio";
 
+        // Aproveitamento de dados
         $conn = new mysqli($servername, $username, $password, $dbname);
 
         // Verifica a conexão
