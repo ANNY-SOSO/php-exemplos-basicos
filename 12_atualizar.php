@@ -69,26 +69,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
 </body>
 </html>
-
-?>
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Editar Cliente</title>
-</head>
-<body>
-    <form method="post" action="">
-        <input type="hidden" name="id" value="<?php echo $cliente['id'] ?? ''; ?>">
-
-        <label for="nome">Nome:</label>
-        <input type="text" name="nome" value="<?php echo isset($cliente['nome']) ? $cliente['nome'] : ''; ?>" required><br>
-
-        <label for="email">Email:</label>
-        <input type="email" name="email" value="<?php echo isset($cliente['email']) ? $cliente['email'] : ''; ?>" required><br>
-
-        <button type="submit">Atualizar</button>
-    </form>
-</body>
-</html>
